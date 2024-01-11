@@ -1,0 +1,227 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins";
+  height: 100vh;
+  background: #12233b;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  position: fixed;
+  top: 0;
+  margin: 30px 0;
+  color: #fff;
+}
+
+.container {
+  position: relative;
+
+  /* To change the height dynamically through js  */
+
+  height: 105px;
+  width: 100%; /* Set width to 100% by default */
+  max-width: 400px; /* Set the maximum width */
+  min-width: 320px; /* Set the minimum width */
+
+  background-color: #fff;
+  padding: 28px 32px;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: 600ms ease-out;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.search-container > button {
+  position: absolute;
+  right: 0;
+  border: none;
+  padding: 10px;
+  background-color: rgba(0, 0, 255, 0.439);
+  border-radius: 50%;
+  color: #1d3557;
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.search-container > button:hover {
+  background-color: rgba(0, 0, 255, 0.539);
+}
+
+.search-container > i {
+  color: #1d3557;
+  font-size: 20px;
+}
+
+input {
+  border: none;
+  margin-left: 5px;
+  width: 80%;
+  font-size: 17px;
+  font-weight: 500;
+  text-transform: uppercase;
+  padding: 5px 30px;
+  outline: none;
+}
+
+input::placeholder {
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #1d3557;
+}
+
+.weather-box .temperature {
+  position: relative;
+  color: #12233b;
+  font-size: 4rem;
+  font-weight: 800;
+  margin-top: 30px;
+}
+
+.weather-box .temperature span {
+  position: absolute;
+  margin-left: 4px;
+  font-size: 1.5rem;
+}
+
+.weather-box .description {
+  color: #12233b;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
+.weather-details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.weather-box {
+  text-align: center;
+}
+
+.humidity,
+.wind {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  line-height: 1;
+  color: #12233b;
+}
+
+.humidity > i,
+.wind > i {
+  font-size: 24px;
+}
+
+.text span {
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.humidity .text > p,
+.wind .text > p {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.humidity .text,
+.wind .text {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.not-found {
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+
+  /* ==to show not-found if we enter something else ==*/
+
+  scale: 0;
+  opacity: 0;
+  display: none;
+}
+
+.not-found > p {
+  font-weight: 700;
+  color: #12233b;
+}
+
+.not-found > img {
+  width: 80%;
+  display: block;
+  margin: 20px auto;
+}
+
+/*  to show image and text and temperature after we center city unless keep it 0*/
+
+.weather-box,
+.weather-details {
+  scale: 0;
+  opacity: 0;
+}
+
+.weather-box img {
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+}
+
+.fade-in {
+  animation: 500ms fadeIn forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
